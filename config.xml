@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.app.betterbercham"
+	version 	= "1.0.0">
+
+	<name>#BetterBercham</name>
+
+	<description>
+		Complaints and Ideas Sharing Portal for Better Bercham
+	</description>
+
+	<author>
+		SG Chua
+	</author>
+
+	<!--<icon src="icon.png" gap:role="default" />-->
+	<!--<icon src="/resources/icons/icon.png" width="57" height="57" />
+	<icon src="/resources/icons/icon@72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="/resources/icons/icon@2x.png" width="114" height="114" />-->
+	
+	<icon src="/resources/icons/#BetterPenang-Logo_57x57.png" width="57" height="57" />
+	<icon src="/resources/icons/#BetterPenang-Logo_72x72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="/resources/icons/#BetterPenang-Logo_114x114.png" width="114" height="114" />
+	
+	<!--<gap:splash src="/resources/loading/Default.png" width="320" height="480" />
+	<gap:splash src="/resources/loading/Default@2x.png" width="640" height="960" />
+	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" width="1024" height="768" />
+	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" width="768" height="1024" />-->
+
+	<gap:splash src="/resources/loading/betterpg-iphone_320x480.png" width="320" height="480" />
+	<gap:splash src="/resources/loading/betterpg-iphone4_640x960.png" width="640" height="960" />
+	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" width="1024" height="768" />
+	<gap:splash src="/resources/loading/betterpg-ipad_768x1024.png" width="768" height="1024" />
+	
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+
+	<gap:plugin name="ChildBrowser" version="~3" /> <!-- for Cordova (1.9.0+) -->
+	<access origin="*" />
+	<!--<access origin="https://build.phonegap.com" browserOnly="true" />-->
+	<preference name="orientation" value="portrait" />
+</widget>
