@@ -42008,30 +42008,38 @@ Ext.define('BetterPenang.controller.Facebook', {
         switch(index)
         {
            case 0:
-				navigator.camera.getPicture(
-					function (imageData)
-					{
-						FromInstantCapture = true;
-						var imgdata = "" + imageData;
-						ImageString = "data:image/jpeg;base64," + imageData;
-						if(imgdata.indexOf("http://www") != -1)
+				try
+				{
+					Ext.Msg.alert('Check', 'Navigator: ' + navigator.camera);
+					navigator.camera.getPicture(
+						function (imageData)
 						{
-							ImageString = imageData;
-						}
-						
-						BetterPenang.app.getController("BetterPGApp").ShowComplaintPage();
-					},
-					function (message)
-					{
-						//error
-						ImageString = "";
-					}, 
-					{ 
-						quality: 75,
-						destinationType: navigator.camera.DestinationType.DATA_URL,
-						targetWidth: 300,
-						targetHeight: 300,
-				});
+							FromInstantCapture = true;
+							var imgdata = "" + imageData;
+							ImageString = "data:image/jpeg;base64," + imageData;
+							if(imgdata.indexOf("http://www") != -1)
+							{
+								ImageString = imageData;
+							}
+							
+							BetterPenang.app.getController("BetterPGApp").ShowComplaintPage();
+						},
+						function (message)
+						{
+							//error
+							ImageString = "";
+						}, 
+						{ 
+							quality: 75,
+							destinationType: navigator.camera.DestinationType.DATA_URL,
+							targetWidth: 300,
+							targetHeight: 300,
+					});
+				}
+				catch(err)
+				{
+					Ext.Msg.alert('Error', 'Err: ' + err); 
+				}
 				// Ext.device.Camera.capture({ 
 					// source: 'camera', 
 					// destination: 'data', 
@@ -55903,8 +55911,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 					console.log("Init Recent Posts");
 			
 					$.ajax({
-						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getTotalPost?wsdl' + new Date().getTime() + Math.random(),
-						data: '{"User":"ALL", "For":"ALL", "Type":""}',
+						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getTotalPostAndroid?wsdl' + new Date().getTime() + Math.random(),
+						data: '{"User":"ALL", "For":"ALL", "Type":"", "PhotoOnly":""}',
 						contentType: "application/json; charset=utf-8",
 						cache: false,
 						dataType: "json",
