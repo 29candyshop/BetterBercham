@@ -55880,17 +55880,17 @@ Ext.define('BetterPenang.view.RecentPosts', {
 				{
 					if(Ext.os.deviceType === 'Phone')
 					{
-						var iphoneselection = Ext.getCmp('iphoneregionselection');				
-						iphoneselection.setValue('both');
+						//var iphoneselection = Ext.getCmp('iphoneregionselection');				
+						//iphoneselection.setValue('both');
 					}
 					else
 					{
-						var ipadselection = Ext.getCmp('ipadregionselection');
-						var ipadcomplaintselection = Ext.getCmp('complaintType');
+						//var ipadselection = Ext.getCmp('ipadregionselection');
+						//var ipadcomplaintselection = Ext.getCmp('complaintType');
 						//var ipadsearch = Ext.getCmp('search');
-						ipadcomplaintselection.setValue('All');
+						//ipadcomplaintselection.setValue('All');
 						//ipadsearch.setValue('');
-						ipadselection.setValue('both');
+						//ipadselection.setValue('both');
 					}
 				
 					RecentPostMsk = "0";
