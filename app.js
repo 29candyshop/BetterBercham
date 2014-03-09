@@ -48865,7 +48865,7 @@ Ext.define('BetterPenang.view.ViewPosts', {
 					});
 												
 					$.ajax({
-						url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
+						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
 						data: '{"imageURL":"' + BetterPenang.app.getController("BetterPGApp").GetViewImagePath() + '","Width":"' + CarousalWidth + '", "Height":"' + CarousalHeight + '","PicSize":"' + BetterPenang.app.getController("BetterPGApp").GetViewPicSize() + '"}',
 						contentType: "application/json; charset=utf-8",
 						cache: false,
@@ -55903,7 +55903,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
 					console.log("Init Recent Posts");
 			
 					$.ajax({
-						url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/getTotalPost?wsdl' + new Date().getTime() + Math.random(),
+						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getTotalPost?wsdl' + new Date().getTime() + Math.random(),
 						data: '{"User":"ALL", "For":"ALL", "Type":""}',
 						contentType: "application/json; charset=utf-8",
 						cache: false,
@@ -56412,7 +56412,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
 														});
 														
 														$.ajax({
-															url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
+															url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
 															data: '{"imageURL":"' + item.data.country + '","Width":"' + CarousalWidth + '", "Height":"' + CarousalHeight + '","PicSize":"' + item.data.state + '"}',
 															contentType: "application/json; charset=utf-8",
 															cache: false,
@@ -56654,7 +56654,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
 									mRecentPostBody.mask({ xtype: 'loadmask', message: 'Please wait...' });
 									//get from server
 									$.ajax({
-										url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/getNextToken?wsdl' + new Date().getTime() + Math.random(),
+										url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getNextToken?wsdl' + new Date().getTime() + Math.random(),
 										data: '{"User":"ALL", "For":"' + loadmore_For + '", "Type":"' + loadmore_Type + '", "Token":"' + simpleDB_token + '"}',
 										contentType: "application/json; charset=utf-8",
 										cache: false,
@@ -58566,7 +58566,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 		try
 		{
 			$.ajax({
-				url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/PostComplain',
+				url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/PostComplain',
 				data: strData,
 				//dataType: 'text',
 				contentType: "application/json; charset=utf-8",
@@ -59325,7 +59325,7 @@ Ext.define('BetterPenang.view.New.Idea', {
 		mIdeaBody.mask({ xtype: 'loadmask', message: 'Posting Idea...' });
 		
 		$.ajax({
-				url:'http://Betterpenangaxmx.29candyshop.com/WebService1.asmx/PostIdea',
+				url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/PostIdea',
 				data: strData,
 				contentType: "application/json; charset=utf-8",
 				dataType: "json",
