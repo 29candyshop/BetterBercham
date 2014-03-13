@@ -57730,9 +57730,12 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													function (message)
 													{
 														//error
+														Ext.Msg.alert('Error', 'Error: ' + message, Ext.emptyFn);
+														console.log("camera error: " + message);
 													}, 
 													{ 
 														quality: 75,
+														sourceType : navigator.camera.PictureSourceType.CAMERA,
 														destinationType: navigator.camera.DestinationType.DATA_URL,
 														targetWidth: 300,
 														targetHeight: 300,
@@ -57821,15 +57824,16 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													navigator.camera.getPicture(
 													function (imageData)
 													{
+														console.log("image got");
 														//Set Image String to Controller
 														imgComplaintPhoto = Ext.getCmp('imgComplaintCapturePhoto');
 														imageHolder = Ext.getCmp("imgPhoto");
 														var imgdata = "" + imageData;
 														var imgStr = "data:image/jpeg;base64," + imageData;
-														if(imgdata.indexOf("http://www") != -1)
+														/*if(imgdata.indexOf("http://www") != -1)
 														{
 															imgStr = imageData;
-														}
+														}*/
 
 														try
 														{					
@@ -57848,7 +57852,8 @@ Ext.define('BetterPenang.view.New.Complaints', {
 																}
 															}
 															else
-															{			
+															{		
+																
 																if( Ext.os.deviceType == 'Phone')
 																{
 																	var imgTempPhone = new Image();
@@ -57860,6 +57865,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 																		imageHolder.setSrc(imageUrl);
 																	  //alert(this.width + 'x' + this.height);
 																	}
+																	console.log("image Set");
 																	imgTempPhone.src = imageUrl;
 																	//imageHolder.setSrc(imageUrl);
 																}
@@ -57873,6 +57879,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 																		imgComplaintPhoto.setHeight(h);
 																		imgComplaintPhoto.setSrc(imageUrl);
 																	}
+																	console.log("image Set");
 																	imgTemp.src = imageUrl;
 																}
 															}
@@ -57886,6 +57893,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													},
 													function (message)
 													{
+														Ext.Msg.alert('Error', 'Error: ' + message, Ext.emptyFn);
 														//error
 													}, 
 													{ 
