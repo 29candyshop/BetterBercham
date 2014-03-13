@@ -42010,8 +42010,8 @@ Ext.define('BetterPenang.controller.Facebook', {
            case 0:
 				try
 				{
-					Ext.Msg.alert('Check', 'Navigator: ' + navigator);
-					/*navigator.camera.getPicture(
+					//Ext.Msg.alert('Check', 'Navigator: ' + navigator);
+					navigator.camera.getPicture(
 						function (imageData)
 						{
 							FromInstantCapture = true;
@@ -42034,7 +42034,7 @@ Ext.define('BetterPenang.controller.Facebook', {
 							destinationType: navigator.camera.DestinationType.DATA_URL,
 							targetWidth: 300,
 							targetHeight: 300,
-					});*/
+					});
 				}
 				catch(err)
 				{
