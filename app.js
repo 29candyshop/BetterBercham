@@ -58079,6 +58079,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												{
 													console.log("start Camera");
 													try
+													{
 														navigator.camera.getPicture(
 														function (imageData)
 														{
