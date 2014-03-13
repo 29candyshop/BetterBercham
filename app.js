@@ -57668,6 +57668,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												  //ui: 'decline',
 												  scope: this,
 												  handler: function() {
+													console.log("start Camera");
 													navigator.camera.getPicture(
 													function (imageData)
 													{
@@ -58076,6 +58077,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												scope: this,
 												handler: function() 
 												{
+													console.log("start Camera");
 													navigator.camera.getPicture(
 													function (imageData)
 													{
@@ -58138,9 +58140,11 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													function (message)
 													{
 														//error
+														console.log("error: " + message);
 													}, 
 													{ 
 														quality: 75,
+														sourceType : navigator.camera.PictureSourceType.CAMERA,
 														destinationType: navigator.camera.DestinationType.DATA_URL,
 														targetWidth: 300,
 														targetHeight: 300,
@@ -58229,9 +58233,11 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												scope: this,
 												handler: function() 
 												{
+													console.log("start gallery ");
 													navigator.camera.getPicture(
 													function (imageData)
 													{
+														console.log("got image");
 														//Set Image String to Controller
 														imgComplaintPhoto = Ext.getCmp('imgComplaintCapturePhoto');
 														imageHolder = Ext.getCmp("imgPhoto");
@@ -58298,6 +58304,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													function (message)
 													{
 														//error
+														console.log("error: " + message);
 													}, 
 													{ 
 														quality: 75,
