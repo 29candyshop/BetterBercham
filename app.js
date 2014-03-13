@@ -58078,77 +58078,82 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												handler: function() 
 												{
 													console.log("start Camera");
-													navigator.camera.getPicture(
-													function (imageData)
-													{
-														imgComplaintPhoto = Ext.getCmp('imgComplaintCapturePhoto');
-														imageHolder = Ext.getCmp("imgPhoto");
-														var imgdata = "" + imageData;
-														var imgStr = "data:image/jpeg;base64," + imageData;
-														if(imgdata.indexOf("http://www") != -1)
+													try
+														navigator.camera.getPicture(
+														function (imageData)
 														{
-															imgStr = imageData;
-														}
-
-														try
-														{					
-															imageUrl = imgStr;
-
-															if(imageUrl == "")
-															{	
-																Ext.Msg.alert('Error', 'Empty Photo?', Ext.emptyFn);
-																imageHolder.setSrc('resources/images/getPhotoSquareGrey.png');
-																
+															imgComplaintPhoto = Ext.getCmp('imgComplaintCapturePhoto');
+															imageHolder = Ext.getCmp("imgPhoto");
+															var imgdata = "" + imageData;
+															var imgStr = "data:image/jpeg;base64," + imageData;
+															if(imgdata.indexOf("http://www") != -1)
+															{
+																imgStr = imageData;
 															}
-															else
-															{			
-																if( Ext.os.deviceType == 'Phone')
-																{
-																	var imgTempPhone = new Image();
-																	imgTempPhone.onload = function() {
-																		var w = imgTempPhone.width;
-																		var h = imgTempPhone.height;
-																		imageHolder.setWidth(w);
-																		imageHolder.setHeight(h);
-																		imageHolder.setSrc(imageUrl);
-																	  //alert(this.width + 'x' + this.height);
-																	}
-																	imgTempPhone.src = imageUrl;
-																	//imageHolder.setSrc(imageUrl);
+
+															try
+															{					
+																imageUrl = imgStr;
+
+																if(imageUrl == "")
+																{	
+																	Ext.Msg.alert('Error', 'Empty Photo?', Ext.emptyFn);
+																	imageHolder.setSrc('resources/images/getPhotoSquareGrey.png');
+																	
 																}
 																else
-																{
-																	var imgTemp = new Image();
-																	imgTemp.onload = function() {
-																		var w = imgTemp.width;
-																		var h = imgTemp.height;
-																		imgComplaintPhoto.setWidth(w);
-																		imgComplaintPhoto.setHeight(h);
-																		imgComplaintPhoto.setSrc(imageUrl);
+																{			
+																	if( Ext.os.deviceType == 'Phone')
+																	{
+																		var imgTempPhone = new Image();
+																		imgTempPhone.onload = function() {
+																			var w = imgTempPhone.width;
+																			var h = imgTempPhone.height;
+																			imageHolder.setWidth(w);
+																			imageHolder.setHeight(h);
+																			imageHolder.setSrc(imageUrl);
+																		  //alert(this.width + 'x' + this.height);
+																		}
+																		imgTempPhone.src = imageUrl;
+																		//imageHolder.setSrc(imageUrl);
 																	}
-																	imgTemp.src = imageUrl;
+																	else
+																	{
+																		var imgTemp = new Image();
+																		imgTemp.onload = function() {
+																			var w = imgTemp.width;
+																			var h = imgTemp.height;
+																			imgComplaintPhoto.setWidth(w);
+																			imgComplaintPhoto.setHeight(h);
+																			imgComplaintPhoto.setSrc(imageUrl);
+																		}
+																		imgTemp.src = imageUrl;
+																	}
 																}
+																BetterPenang.app.getController("BetterPGApp").SetImageValue(imageData);
 															}
-															BetterPenang.app.getController("BetterPGApp").SetImageValue(imageData);
-														}
-														catch(err)
+															catch(err)
+															{
+																Ext.Msg.alert('Error', 'Error: ' + err, Ext.emptyFn);
+																console.log("not image");
+															}
+														},
+														function (message)
 														{
-															Ext.Msg.alert('Error', 'Error: ' + err, Ext.emptyFn);
-															console.log("not image");
-														}
-													},
-													function (message)
-													{
-														//error
-														console.log("error: " + message);
-													}, 
-													{ 
-														quality: 75,
-														sourceType : navigator.camera.PictureSourceType.CAMERA,
-														destinationType: navigator.camera.DestinationType.DATA_URL,
-														targetWidth: 300,
-														targetHeight: 300,
-													});
+															//error
+															console.log("error: " + message);
+														}, 
+														{ 
+															quality: 75,
+															sourceType : navigator.camera.PictureSourceType.CAMERA,
+															destinationType: navigator.camera.DestinationType.DATA_URL,
+															targetWidth: 300,
+															targetHeight: 300,
+														});
+													}
+													catch(err){
+														console.log("error: " + err);
+													}
 													// Ext.device.Camera.capture({ 
 														// source: 'camera', 
 														// destination: 'data', 
