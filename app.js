@@ -55963,7 +55963,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
 							
 							for(var start = 1; start < length; start++)
 							{
-								console.log("Data: " + data.d[start]["Title"]);
+								//console.log("Data: " + data.d[start]["Title"]);
 								var mTitle = data.d[start]["Title"];
 								if(mTitle.length > wordlength)
 								{
@@ -55974,8 +55974,17 @@ Ext.define('BetterPenang.view.RecentPosts', {
 								{
 									For = "All";
 								}
-								Console.log(data.d[start]["strImageURL_FB"]);
-								mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + data.d[start]["strImageURL_FB"], longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
+								try
+								var ImageFB = "";
+								{
+									ImageFB = data.d[start]["strImageURL_FB"];
+								}
+								catch(err)
+								{
+									ImageFB = "";
+								}
+								Console.log(ImageFB);
+								mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + ImageFB, longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
 							}
 							mystore.sync();
 							RecentPostMsk = null;
@@ -55993,6 +56002,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
               }
             catch(err)
               {
+				Console.log("error: " + err);
 				Ext.Viewport.unmask();
 				Ext.Msg.alert('ajax', 'Error: ' + err , Ext.emptyFn);
               }
