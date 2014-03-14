@@ -48871,8 +48871,8 @@ Ext.define('BetterPenang.view.ViewPosts', {
 					var myPanel1 = Ext.create('Ext.Panel', {
 						html: 'This will be added to a Container'
 					});
-					var imgStr = '<img src="' + item.data.country + '" />';
-					myPanel1.setHtml("" + BetterPenang.app.getController("BetterPGApp").GetViewImagePath());
+					var imgStr = '<img src="' + BetterPenang.app.getController("BetterPGApp").GetViewImagePath() + '" />';
+					myPanel1.setHtml("" + imgStr);
 					ca.add([myPanel1]);
 					
 					if(CurrentLat == "0.0" && CurrentLong == "0.0")
@@ -56138,6 +56138,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 												if(Ext.os.deviceType == "Phone")
 												{
 													//Phone, set to controller, open ViewPosts
+													//console.log("Selected: " + item.data.completetitle);
+													//console.log("Image path: " + item.data.country);
 													BetterPenang.app.getController("BetterPGApp").SetViewPostInfo(item.data.completetitle, item.data.latitude, item.data.longitude, item.data.country, item.data.description, item.data.headshot, item.data.lastName, item.data.telephone, item.data.state, item.data.title, item.data.address, item.data.fbid);
 													BetterPenang.app.getController("BetterPGApp").ShowViewPostPage();
 												}
