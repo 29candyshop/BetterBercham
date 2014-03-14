@@ -48871,8 +48871,27 @@ Ext.define('BetterPenang.view.ViewPosts', {
 					var myPanel1 = Ext.create('Ext.Panel', {
 						html: 'This will be added to a Container'
 					});
-												
-					$.ajax({
+					var imgStr = '<img src="' + item.data.country + '" />';
+					myPanel1.setHtml("" + BetterPenang.app.getController("BetterPGApp").GetViewImagePath());
+					ca.add([myPanel1]);
+					
+					if(CurrentLat == "0.0" && CurrentLong == "0.0")
+					{
+						myPanel2.setHtml("</br></br><p>" + item.data.address + "</p>");
+						ca.add([myPanel2]);
+						ca.setActiveItem(0);
+					}
+					else
+					{
+						
+						var staticMap = "http://maps.googleapis.com/maps/api/staticmap?center=" + CurrentLat + "%2C" + CurrentLong + "&zoom=16&size=" + (500) + "x" + (300) + "&scale=1&sensor=false&markers=color%3Ared%7Ccolor%3Ared%7Clabel%3AA%7C" + CurrentLat + "%2C" + CurrentLong + "";							
+						var imageMap = '<img src="' + staticMap + '" />';
+						//item2.setSrc(staticMap);
+						myPanel2.setHtml("" + imageMap);
+						ca.add([myPanel2]);
+						ca.setActiveItem(0);
+					}			
+					/*$.ajax({
 						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
 						data: '{"imageURL":"' + BetterPenang.app.getController("BetterPGApp").GetViewImagePath() + '","Width":"' + CarousalWidth + '", "Height":"' + CarousalHeight + '","PicSize":"' + BetterPenang.app.getController("BetterPGApp").GetViewPicSize() + '"}',
 						contentType: "application/json; charset=utf-8",
@@ -48909,7 +48928,7 @@ Ext.define('BetterPenang.view.ViewPosts', {
 							Ext.Viewport.unmask();
 							Ext.Msg.alert('ajax', 'Error: ' + error.statusText , Ext.emptyFn);
 						}
-					});										
+					});	*/									
 				}
 				else
 				{
@@ -55955,7 +55974,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 								{
 									For = "All";
 								}
-								mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + data.d[start]["ImageURL"], longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
+								Console.log(data.d[start]["strImageURL_FB"]);
+								mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + data.d[start]["strImageURL_FB"], longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
 							}
 							mystore.sync();
 							RecentPostMsk = null;
@@ -56426,7 +56446,27 @@ Ext.define('BetterPenang.view.RecentPosts', {
 															html: 'This will be added to a Container'
 														});
 														
-														$.ajax({
+														var imgStr = '<img src="' + item.data.country + '" />';
+														myPanel1.setHtml("" + imgStr);
+														ca.add([myPanel1]);
+														
+														if(CurrentLat == "0.0" && CurrentLong == "0.0")
+														{
+															myPanel2.setHtml("</br></br><p>" + item.data.address + "</p>");
+															ca.add([myPanel2]);
+															ca.setActiveItem(0);
+														}
+														else
+														{
+															
+															var staticMap = "http://maps.googleapis.com/maps/api/staticmap?center=" + CurrentLat + "%2C" + CurrentLong + "&zoom=16&size=" + (500) + "x" + (300) + "&scale=1&sensor=false&markers=color%3Ared%7Ccolor%3Ared%7Clabel%3AA%7C" + CurrentLat + "%2C" + CurrentLong + "";							
+															var imageMap = '<img src="' + staticMap + '" />';
+															//item2.setSrc(staticMap);
+															myPanel2.setHtml("" + imageMap);
+															ca.add([myPanel2]);
+															ca.setActiveItem(0);
+														}
+														/*$.ajax({
 															url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getImage?wsdl' + new Date().getTime() + Math.random(),
 															data: '{"imageURL":"' + item.data.country + '","Width":"' + CarousalWidth + '", "Height":"' + CarousalHeight + '","PicSize":"' + item.data.state + '"}',
 															contentType: "application/json; charset=utf-8",
@@ -56463,7 +56503,7 @@ Ext.define('BetterPenang.view.RecentPosts', {
 																Ext.Viewport.unmask();
 																Ext.Msg.alert('ajax', 'Error: ' + error.statusText , Ext.emptyFn);
 															}
-														});
+														});*/
 													}
 													else
 													{
