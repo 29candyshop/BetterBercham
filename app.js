@@ -55960,32 +55960,40 @@ Ext.define('BetterPenang.view.RecentPosts', {
 									break;
 							}
 							simpleDB_token = data.d[0]["TrackingID"];
-							
+							console.log("NextToken: " + simpleDB_token);
 							for(var start = 1; start < length; start++)
 							{
-								//console.log("Data: " + data.d[start]["Title"]);
-								var mTitle = data.d[start]["Title"];
-								if(mTitle.length > wordlength)
-								{
-									mTitle = mTitle.substring(0,(wordlength - 1)) + "...";
-								}
-								var For = data.d[start]["ForPage"];
-								if(For == "")
-								{
-									For = "All";
-								}
-								var ImageFB = "";
 								try
 								{
-									ImageFB = data.d[start]["strImageURL_FB"];
+									//console.log("Data: " + data.d[start]["Title"]);
+									var mTitle = data.d[start]["Title"];
+									if(mTitle.length > wordlength)
+									{
+										mTitle = mTitle.substring(0,(wordlength - 1)) + "...";
+									}
+									var For = data.d[start]["ForPage"];
+									if(For == "")
+									{
+										For = "All";
+									}
+									var ImageFB = "";
+									try
+									{
+										ImageFB = data.d[start]["strImageURL_FB"];
+									}
+									catch(err)
+									{
+										ImageFB = "";
+									}
+									//Console.log(ImageFB);
+									mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + ImageFB, longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
 								}
-								catch(err)
+								catch(errorMsg)
 								{
-									ImageFB = "";
+									Console.log("Error: " + errorMsg);
 								}
-								Console.log(ImageFB);
-								mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + ImageFB, longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
 							}
+						
 							mystore.sync();
 							RecentPostMsk = null;
 							mRecentPostBody.unmask();
