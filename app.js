@@ -55974,8 +55974,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 								{
 									For = "All";
 								}
-								try
 								var ImageFB = "";
+								try
 								{
 									ImageFB = data.d[start]["strImageURL_FB"];
 								}
