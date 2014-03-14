@@ -55912,54 +55912,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 					//var request = { userName: "aaa", password: "123" };
 					var request = {  };
 					var jsondata = JSON.stringify(request);
-					/*$.ajax({
-						url:"http://localhost:51905/Service1.svc/Join",
-						data: { 		
-							format: 'json'
-						},	  
-						dataType: 'JSONP',	  
-						success: function(data) 
-						{
-							alert('success: ' + data);
-						}
-					});*/
-					/*$.ajax({
-						type: "POST", //GET or POST or PUT or DELETE verb
-						url: "http://141.183.191.232:51905/Service1.svc/Join", // Location of the service
-						data: jsondata, //Data sent to server
-						contentType: "application/json; charset=utf-8", // content type sent to server
-						dataType: "json", //Expected data format from server
-						processdata: true, //True or False
-						crossDomain: true, //True or False
-						success: function (result) {
-						   alert('success: ' + result);
-						}
-					});*/
 					
-
-
-					$.ajax
-					(
-						{
-							type: 'POST',
-							url: 'http://141.183.191.232:51905/Service1.svc/Join',
-							dataType: 'json',
-							contentType: 'application/json',
-							data: '{  }',
-							success: function (response, type, xhr)
-							{
-								window.alert('A: ' + response.PostTestResult.A);
-							},
-							error: function (xhr)
-							{
-								window.alert('error: ' + xhr.statusText);
-							}
-						}
-					);
-
-
-
-					/*$.ajax({
+					$.ajax({
 						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getTotalPostAndroid?wsdl' + new Date().getTime() + Math.random(),
 						data: '{"User":"ALL", "For":"ALL", "Type":"", "PhotoOnly":""}',
 						contentType: "application/json; charset=utf-8",
@@ -55967,8 +55921,10 @@ Ext.define('BetterPenang.view.RecentPosts', {
 						dataType: "json",
 						type: 'POST',
 						success: function(data, status){
-							Ext.Msg.alert('ajax', 'OK', Ext.emptyFn);
+							//Ext.Msg.alert('ajax', 'OK', Ext.emptyFn);
+							console.log("Got Response: " + status);
 							var length = data.d.length;
+							console.log("data length:" + length);
 							//Ext.Viewport.unmask();
 							//Ext.Msg.alert('data', 'length: ' + length , Ext.emptyFn);
 							var listcmp = Ext.getCmp("recentlist");
@@ -56009,9 +55965,10 @@ Ext.define('BetterPenang.view.RecentPosts', {
 						error: function(error) {
 							RecentPostMsk = null;
 							mRecentPostBody.unmask();
+							console.log("error: " + error);
 							Ext.Msg.alert('ajax', 'Error: ' + error.statusText , Ext.emptyFn);
 						}
-					});*/
+					});
 				}
               }
             catch(err)
@@ -58249,10 +58206,10 @@ Ext.define('BetterPenang.view.New.Complaints', {
 														imageHolder = Ext.getCmp("imgPhoto");
 														var imgdata = "" + imageData;
 														var imgStr = "data:image/jpeg;base64," + imageData;
-														if(imgdata.indexOf("http://www") != -1)
-														{
-															imgStr = imageData;
-														}
+														//if(imgdata.indexOf("http://www") != -1)
+														//{
+														//	imgStr = imageData;
+														//}
 
 														try
 														{					
@@ -58314,7 +58271,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 													}, 
 													{ 
 														quality: 75,
-														sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+														sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM,//PHOTOLIBRARY,
 														destinationType: navigator.camera.DestinationType.DATA_URL,
 														targetWidth: 300,
 														targetHeight: 300,
