@@ -55915,14 +55915,14 @@ Ext.define('BetterPenang.view.RecentPosts', {
 					
 					$.ajax({
 						url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getTotalPostAndroid?wsdl' + new Date().getTime() + Math.random(),
-						data: '{"User":"ALL", "For":"ALL", "Type":"", "PhotoOnly":""}',
+						data: '{"User":"ALL", "For":"ALL", "Type":"ALL", "PhotoOnly":""}',
 						contentType: "application/json; charset=utf-8",
 						cache: false,
 						dataType: "json",
 						type: 'POST',
 						success: function(data, status){
 							//Ext.Msg.alert('ajax', 'OK', Ext.emptyFn);
-							console.log("Got Response: " + status);
+							console.log("Got Response: " + status + ", data:" + data);
 							var length = data.d.length;
 							console.log("data length:" + length);
 							//Ext.Viewport.unmask();
