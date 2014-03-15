@@ -41477,7 +41477,7 @@ Ext.define('BetterPenang.controller.Facebook', {
 							me.login();
                          }
                          },
-                         { scope: "publish_stream",'user_status', 'publish_checkins', 'user_likes' }
+                         { scope: "publish_stream","user_status", "publish_checkins", "user_likes" }
                          );
 		// // Begin Authorization
 		// var authorize_url = "https://graph.facebook.com/oauth/authorize?wsdl" + new Date().getTime() + Math.random()
