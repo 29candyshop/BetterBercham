@@ -41367,10 +41367,10 @@ Ext.define('BetterPenang.controller.Facebook', {
 				Ext.Viewport.setMasked(false);
 
 				if (response.status == 'connected') {
-					//console.log("FB Connected");
+					console.log("FB Connected");
 					me.onLogin();
 				} else {
-					//console.log("FB Disconnected");
+					console.log("FB Disconnected");
 					me.login();
 				}
 			});
@@ -41459,7 +41459,20 @@ Ext.define('BetterPenang.controller.Facebook', {
 		
 		var me = this;
 		
-	
+		console.log("FB Login Clicked");
+		
+		FB.login(
+                         function(response) {
+                         if (response.session) {
+							//alert('logged in');
+							me.onLogin();
+                         } else {
+							//alert('not logged in');
+							me.login();
+                         }
+                         },
+                         { scope: "email" }
+                         );
 		// // Begin Authorization
 		// var authorize_url = "https://graph.facebook.com/oauth/authorize?wsdl" + new Date().getTime() + Math.random()
 		 // authorize_url += "&client_id=" + my_client_id;
