@@ -41321,14 +41321,18 @@ Ext.define('BetterPenang.controller.Facebook', {
 		var me = this;
 		  
 		console.log("init FB");
-		app.init();
+		//app.init();
 		if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
         if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
 		try
 		{
 			FB.init({ appId: BetterPenang.app.facebookAppId, nativeInterface: CDV.FB, useCachedDialogs: false });
-			if (BetterPenang.app.facebookAppId == '') return;
-			console.log("App ID: 674651699253599");
+			if (BetterPenang.app.facebookAppId == '')
+			{			
+				console.log("return as no fbid");
+				return;
+			}
+			console.log("App ID: " + appId: BetterPenang.app.facebookAppId);
 			var me = this;
 			//FB.init({ appId: "674651699253599", nativeInterface: CDV.FB, useCachedDialogs: false });
 			// FB.init({
@@ -41377,7 +41381,7 @@ Ext.define('BetterPenang.controller.Facebook', {
 			//me.login();
 			//console.log("set timeout " + BetterPenang.app.facebookAppId);
 			me.fbLoginTimeout = setTimeout(function() {
-
+				console.log("FB timeout");
 				Ext.Viewport.setMasked(false);
 
 			}, 10000);
@@ -41550,8 +41554,9 @@ Ext.define('BetterPenang.controller.Facebook', {
 	
     onFacebookInit: function() {
 		console.log("On FB Init");
-        if (BetterPenang.app.facebookAppId == '') return;
 		console.log("App ID: " + BetterPenang.app.facebookAppId);
+        if (BetterPenang.app.facebookAppId == '') return;
+		
         var me = this;
 
 		FB.init({
@@ -41574,10 +41579,10 @@ Ext.define('BetterPenang.controller.Facebook', {
             Ext.Viewport.setMasked(false);
 
             if (response.status == 'connected') {
-				//console.log("FB Connected");
+				console.log("FB Connected");
                 me.onLogin();
             } else {
-				//console.log("FB Disconnected");
+				console.log("FB Disconnected");
                 me.login();
             }
         });
