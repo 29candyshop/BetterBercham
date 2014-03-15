@@ -27960,6 +27960,7 @@ Ext.define('BetterPenang.view.Login', {
 											try
 											{
 												BetterPenang.app.getController("Facebook").FBLogin();
+												
 											}
 											catch(err)
 											{
@@ -41320,71 +41321,71 @@ Ext.define('BetterPenang.controller.Facebook', {
 		var me = this;
 		  
 		console.log("init FB");
-		//app.init();
-		//if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
-        //if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
-		// try
-		// {
-			// FB.init({ appId: BetterPenang.app.facebookAppId, nativeInterface: CDV.FB, useCachedDialogs: false });
-			// if (BetterPenang.app.facebookAppId == '') return;
-			// console.log("App ID: 145752665562770");
-			// var me = this;
-			// //FB.init({ appId: "145752665562770", nativeInterface: CDV.FB, useCachedDialogs: false });
-			// // FB.init({
-			  // // appId      : '145752665562770', // App ID
-			  // // //channelUrl : '//localhost/betterpg/index.html', // Channel File
-			  // // status     : true, // check login status
-			  // // cookie     : true, // enable cookies to allow the server to access the session
-			  // // //xfbml      : true  // parse XFBML
-			// // });
-			
-			// FB.Event.subscribe('auth.login', function(response) {
-                               // alert('auth.login event');
-                               // });
-            
-            // FB.Event.subscribe('auth.logout', function(response) {
-                               // alert('auth.logout event');
-                               // });
-            
-            // FB.Event.subscribe('auth.sessionChange', function(response) {
-                               // alert('auth.sessionChange event');
-                               // });
-            
-            // FB.Event.subscribe('auth.statusChange', function(response) {
-                               // alert('auth.statusChange event');
-                               // });
-			
-			// // FB.Event.subscribe('auth.logout', Ext.bind(me.onLogout, me));
-			
-			// // FB.Event.subscribe('auth.login', Ext.bind(me.onLogin, me));
-
-			// FB.getLoginStatus(function(response) {
-				// console.log("Get Status " + response.status);
-				// clearTimeout(me.fbLoginTimeout);
-
-				// me.hasCheckedStatus = true;
-				// Ext.Viewport.setMasked(false);
-
-				// if (response.status == 'connected') {
-					// //console.log("FB Connected");
-					// me.onLogin();
-				// } else {
-					// //console.log("FB Disconnected");
-					// me.login();
-				// }
+		app.init();
+		if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+        if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
+		try
+		{
+			FB.init({ appId: BetterPenang.app.facebookAppId, nativeInterface: CDV.FB, useCachedDialogs: false });
+			if (BetterPenang.app.facebookAppId == '') return;
+			console.log("App ID: 674651699253599");
+			var me = this;
+			//FB.init({ appId: "674651699253599", nativeInterface: CDV.FB, useCachedDialogs: false });
+			// FB.init({
+			  // appId      : '674651699253599', // App ID
+			  // //channelUrl : '//localhost/betterpg/index.html', // Channel File
+			  // status     : true, // check login status
+			  // cookie     : true, // enable cookies to allow the server to access the session
+			  // //xfbml      : true  // parse XFBML
 			// });
-			// //me.login();
-			// //console.log("set timeout " + BetterPenang.app.facebookAppId);
-			// me.fbLoginTimeout = setTimeout(function() {
+			
+			FB.Event.subscribe('auth.login', function(response) {
+                               alert('auth.login event');
+                               });
+            
+            FB.Event.subscribe('auth.logout', function(response) {
+                               alert('auth.logout event');
+                               });
+            
+            FB.Event.subscribe('auth.sessionChange', function(response) {
+                               alert('auth.sessionChange event');
+                               });
+            
+            FB.Event.subscribe('auth.statusChange', function(response) {
+                               alert('auth.statusChange event');
+                               });
+			
+			// FB.Event.subscribe('auth.logout', Ext.bind(me.onLogout, me));
+			
+			// FB.Event.subscribe('auth.login', Ext.bind(me.onLogin, me));
 
-				// Ext.Viewport.setMasked(false);
+			FB.getLoginStatus(function(response) {
+				console.log("Get Status " + response.status);
+				clearTimeout(me.fbLoginTimeout);
 
-			// }, 10000);
-		// }
-		// catch(err)
-		// {
-			// console.log("error: " + err);
-		// }
+				me.hasCheckedStatus = true;
+				Ext.Viewport.setMasked(false);
+
+				if (response.status == 'connected') {
+					//console.log("FB Connected");
+					me.onLogin();
+				} else {
+					//console.log("FB Disconnected");
+					me.login();
+				}
+			});
+			//me.login();
+			//console.log("set timeout " + BetterPenang.app.facebookAppId);
+			me.fbLoginTimeout = setTimeout(function() {
+
+				Ext.Viewport.setMasked(false);
+
+			}, 10000);
+		}
+		catch(err)
+		{
+			console.log("error: " + err);
+		}
 
         // window.fbAsyncInit = Ext.bind(this.onFacebookInit, this);
 
@@ -41455,51 +41456,25 @@ Ext.define('BetterPenang.controller.Facebook', {
 	
 	FBLogin: function()
 	{
-		//BetterPenang.app.getController("BetterPGApp").ShowMainPage("", "");
-		//return;
-		// var fbCode = '5555555555';
-		// $.ajax({
-				// url:'http://46.137.215.68/myjsonp/WebService1_JSONP.asmx/getTestString',
-				// data: {},
-				// dataType: 'text',
-				// type: 'POST',
-				// success: function(data, status){
-					// Ext.Msg.alert('ajax', 'data: ' + data, Ext.emptyFn);
-					// //Ext.Msg.alert('ajax', 'Done FB Success ', Ext.emptyFn);
-					// // We store our token in a localStorage Item called facebook_token
-					// //localStorage.setItem(facebook_token, data.split("=")[1]);
-					
-					// //window.plugins.childBrowser.close();
-					
-					// //me.FBInit();
-				// },
-				// error: function(error) {
-					// Ext.Msg.alert('ajax', 'Error: ' + error.status , Ext.emptyFn);
-					// //window.plugins.childBrowser.close();
-				// }
-			// });	
+		
 		var me = this;
 		
-		// Begin Authorization
-		var authorize_url = "https://graph.facebook.com/oauth/authorize?wsdl" + new Date().getTime() + Math.random()
-		 authorize_url += "&client_id=" + my_client_id;
-		 authorize_url += "&redirect_uri=" + my_redirect_uri;
-		 authorize_url += "&display=" + my_display;
-		 authorize_url += "&scope=publish_stream,offline_access";
-		 //authorize_url += "&type=user_agent";
+	
+		// // Begin Authorization
+		// var authorize_url = "https://graph.facebook.com/oauth/authorize?wsdl" + new Date().getTime() + Math.random()
+		 // authorize_url += "&client_id=" + my_client_id;
+		 // authorize_url += "&redirect_uri=" + my_redirect_uri;
+		 // authorize_url += "&display=" + my_display;
+		 // authorize_url += "&scope=publish_stream,offline_access";
+		 // //authorize_url += "&type=user_agent";
 		 
-		// Open Child browser and ask for permissions
-		window.plugins.childBrowser.onLocationChange = function(loc){
-			 me.ChildBrowserLocationChanged(loc);
-		};
+		// // Open Child browser and ask for permissions
+		// window.plugins.childBrowser.onLocationChange = function(loc){
+			 // me.ChildBrowserLocationChanged(loc);
+		// };
 		
-		window.plugins.childBrowser.showWebPage(authorize_url);
-		//window.plugins.childBrowser.showWebPage(authorize_url, 
-		//						{
-		//							//showNavigationBar : false,
-		//							showLocationBar : false,
-		//							showAddress : false
-		//						});
+		// window.plugins.childBrowser.showWebPage(authorize_url);
+		
 	},
 	
 	ChildBrowserLocationChanged: function(loc)
@@ -59738,7 +59713,7 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 		console.log("App Launched");
-		this.facebookAppId = '145752665562770';
+		this.facebookAppId = '674651699253599';
 		this.deviceWidth = Ext.Viewport.getWindowWidth();
 		this.deviceHeight = Ext.Viewport.getWindowHeight();
 
@@ -59747,9 +59722,9 @@ Ext.application({
 		
 		console.log("app.js width : " + this.deviceWidth);
 		console.log("app.js width : " + this.facebookAppId);
-		//BetterPenang.app.getController("Facebook").FBInit();
+		BetterPenang.app.getController("Facebook").FBInit();
 		
-		BetterPenang.app.getController("BetterPGApp").ShowMainPage();
+		//BetterPenang.app.getController("BetterPGApp").ShowMainPage();
 		//app.init();
 		// if(localStorage.getItem("token"))
 		// {
