@@ -41326,13 +41326,13 @@ Ext.define('BetterPenang.controller.Facebook', {
         if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
 		try
 		{
-			//FB.init({ appId: BetterPenang.app.facebookAppId, nativeInterface: CDV.FB, useCachedDialogs: false });
+			FB.init({ appId: "674651699253599", nativeInterface: CDV.FB, useCachedDialogs: false });
 			if (BetterPenang.app.facebookAppId == '')
 			{			
 				console.log("return as no fbid");
 				return;
 			}
-			console.log("App ID: " + BetterPenang.app.facebookAppId);
+			console.log("App ID: " + "674651699253599");
 			var me = this;
 			//FB.init({ appId: "674651699253599", nativeInterface: CDV.FB, useCachedDialogs: false });
 			// FB.init({
@@ -41355,7 +41355,7 @@ Ext.define('BetterPenang.controller.Facebook', {
                                alert('auth.sessionChange event');
                                });
             
-            FB.Event.subscribe('auth.statusChange', function(response) {
+            FB.Event.subscribe('auth.statusChange', function(response) { 
                                alert('auth.statusChange event');
                                });
 			
