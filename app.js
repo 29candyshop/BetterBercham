@@ -41469,13 +41469,15 @@ Ext.define('BetterPenang.controller.Facebook', {
                          function(response) {
                          if (response.session) {
 							//alert('logged in');
+							console.log("Login Success");
 							me.onLogin();
                          } else {
+							console.log("Login Fail");
 							//alert('not logged in');
 							me.login();
                          }
                          },
-                         { scope: "email" }
+                         { scope: "publish_stream" }
                          );
 		// // Begin Authorization
 		// var authorize_url = "https://graph.facebook.com/oauth/authorize?wsdl" + new Date().getTime() + Math.random()
@@ -41610,17 +41612,18 @@ Ext.define('BetterPenang.controller.Facebook', {
 
         var me = this,
             errTitle;
-
+		console.log("Success Login");
         FB.api('/me', function(response) {
 
             if (response.error) {
                 FB.logout();
-
+				console.log("Some error: " + response.error.message);
                 errTitle = "Facebook " + response.error.type + " error";
                 Ext.Msg.alert(errTitle, response.error.message, function() {
                     me.login();
                 });
             } else {
+				console.log("Get Username ");
                 BetterPenang.userData = response;
 				console.log("ME:  " + BetterPenang.userData.name);
 				console.log("Access Token:  " + FB.getAuthResponse()['accessToken']);
