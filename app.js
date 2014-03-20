@@ -41322,7 +41322,7 @@ Ext.define('BetterPenang.controller.Facebook', {
 		  
 		console.log("init FB");
 		//app.init();
-		if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
+		/*if (typeof CDV == 'undefined') alert('CDV variable does not exist. Check that you have included cdv-plugin-fb-connect.js correctly');
         if (typeof FB == 'undefined') alert('FB variable does not exist. Check that you have included the Facebook JS SDK file.');
 		try
 		{
@@ -41389,7 +41389,7 @@ Ext.define('BetterPenang.controller.Facebook', {
 		catch(err)
 		{
 			console.log("error: " + err);
-		}
+		}*/
 
         // window.fbAsyncInit = Ext.bind(this.onFacebookInit, this);
 
@@ -50464,11 +50464,11 @@ Ext.define('Ext.device.Camera', {
 				console.log("bk width to set : " + bkwidth_toset);
 				var bk = Ext.getCmp("mainpanel_bk");
 				//var htmlstr_bk = "<img width=\"" + bkwidth_toset + "\" src=\"resources/images/pg-panorama.png\" align=\"center\"><br>";
-				var htmlstr_bk = "<img width=\"" + bkwidth_toset + "\" src=\"resources/images/betterpg-mainlogo4.png\" align=\"center\"><br>";
+				//var htmlstr_bk = "<img width=\"" + bkwidth_toset + "\" src=\"resources/images/betterpg-mainlogo4.png\" align=\"center\"><br>";
 				//console.log("html string : " + htmlstr);
 				if(Ext.os.deviceType == "Phone")
 				{
-					htmlstr_bk = "<img width=\"" + bkwidth_toset + "\" src=\"resources/images/betterpg-mainlogo-iphone_640x208.png\" align=\"center\"><br>";
+					//htmlstr_bk = "<img width=\"" + bkwidth_toset + "\" src=\"resources/images/betterpg-mainlogo-iphone_640x208.png\" align=\"center\"><br>";
 				}
 				//bk.setHtml(htmlstr_bk);
 				
@@ -50583,7 +50583,8 @@ Ext.define('Ext.device.Camera', {
 												xtype: 'component',
 												id: 'mainpanel_logo',
 												html: [
-													'<img width="100%;" src="resources/images/BetterPenangLogo_653x133.png" align="center"><br>',
+													'<span style=\'font-size:36px;color:#fff;font-weight:bold;text-shadow: 2px 2px #000000;\'>BETTER BERCHAM</span><br>'
+													//'<img width="100%;" src="resources/images/BetterPenangLogo_653x133.png" align="center"><br>',
 												].join("")
 											},
 
@@ -50830,10 +50831,10 @@ Ext.define('Ext.device.Camera', {
             {
                 xtype: "toolbar",
 				style: 'background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#FCDC4E),color-stop(2%,#FCDC4E),color-stop(100%,#E3C439))',
-                
+                height: 60,
                 docked: "bottom",
                 items: [
-					{
+					/*{
 						xtype: 'panel',
 						id: 'userimage',
 						margin: Ext.os.deviceType == 'Phone' ? '1,1,1,1' : '1,1,1,1', //130
@@ -50864,7 +50865,7 @@ Ext.define('Ext.device.Camera', {
 							catch(err)
 							{
 								Ext.Msg.alert('Error', 'Error: ' + err, Ext.emptyFn);
-							}
+							}*/
 							
 							/*Ext.Viewport.mask({ xtype: 'loadmask', message: 'Please wait...' });
 							FB.logout(function(response)
@@ -50886,8 +50887,8 @@ Ext.define('Ext.device.Camera', {
 									console.log('not logged in');
 								}
 							});*/
-						},
-                    }
+						/*},
+                    }*/
                 ]
             }
           
@@ -56733,8 +56734,8 @@ Ext.define('BetterPenang.view.RecentPosts', {
 									mRecentPostBody.mask({ xtype: 'loadmask', message: 'Please wait...' });
 									//get from server
 									$.ajax({
-										url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getNextToken?wsdl' + new Date().getTime() + Math.random(),
-										data: '{"User":"ALL", "For":"' + loadmore_For + '", "Type":"' + loadmore_Type + '", "Token":"' + simpleDB_token + '"}',
+										url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/getNextTokenAndroid?wsdl' + new Date().getTime() + Math.random(),
+										data: '{"User":"ALL", "For":"ALL", "Type":"ALL", "PhotoOnly":"", "Token":"' + simpleDB_token + '"}',
 										contentType: "application/json; charset=utf-8",
 										cache: false,
 										dataType: "json",
@@ -56771,7 +56772,16 @@ Ext.define('BetterPenang.view.RecentPosts', {
 												{
 													For = "All";
 												}
-												mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + data.d[start]["ImageURL"], longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
+												var ImageFB = "";
+												try
+												{
+													ImageFB = data.d[start]["strImageURL_FB"];
+												}
+												catch(err)
+												{
+													ImageFB = "";
+												}
+												mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + ImageFB, longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"], fbid: '' + data.d[start]["FB_post"], address: '' + data.d[start]["Address"] });
 						
 												//mystore.add({firstName:'' + mTitle,lastName: 'For ' + For, headshot: '' + data.d[start]["UserID"], title: '' + data.d[start]["DateTime"], city: '' + data.d[start]["TrackingID"], country: '' + data.d[start]["ImageURL"], longitude: ''+ data.d[start]["Longtitude"], latitude: ''+ data.d[start]["Latitude"], telephone: '' + data.d[start]["Type"], state: ''+ data.d[start]["PicSize"], description: ''+ data.d[start]["Description"], completetitle: '' + data.d[start]["Title"] });
 											}
@@ -58616,7 +58626,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			var strDateTime = "" + intDate; //"09/09/2012";
 			var strUserID = mUserID;
 			
-			var strData_For = "\"For\":\"MPPP\",";
+			var strData_For = "\"For\":\"MBI\",";
 			//check coordinate
 			var CurrentLat = CurrentCoordinate.lat();
 			var CurrentLong = CurrentCoordinate.lng();
@@ -58624,16 +58634,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			
 			//Ext.Msg.alert('Data Empty', '' + strCoor + "   " + strCoordinate, Ext.emptyFn);
 			//return;
-							
-			if(CurrentLong > 100.35)
-			{
-				strData_For = "\"For\":\"MPSP\",";
-			}
-			else
-			{
-				strData_For = "\"For\":\"MPPP\",";
-			}
-			
+
 			var strToken = localStorage.getItem(facebook_token);
 			
 			var strData_Title = "\"Title\":\"" + strComplaintTitle + "\",";
@@ -58641,11 +58642,11 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			var strData_Coordinate = "\"Coordinate\":\"" + strCoordinate + "\",";
 			var strData_Address = "\"Address\":\"" + strAddress + "\",";
 			var strData_Datetime = "\"Datetime\":\"" + strDateTime + "\",";
-			var strData_ImageString = "\"ImageString\":\"" + strImageString + "\",";
-			var strData_UserID = "\"UserID\":\"" + strUserID + "\",";
-			var strData_UserFBAccess_Token = "\"UserFBAccess_Token\":\"" + strToken + "\"";
+			var strData_ImageString = "\"ImageString\":\"" + strImageString + "\"";
+			//var strData_UserID = "\"UserID\":\"" + strUserID + "\",";
+			//var strData_UserFBAccess_Token = "\"UserFBAccess_Token\":\"" + strToken + "\"";
 			
-			var strData = "{" + strData_For + strData_Title + strData_Description + strData_Coordinate + strData_Address + strData_Datetime + strData_ImageString + strData_UserID + strData_UserFBAccess_Token + "}";
+			var strData = "{" + strData_For + strData_Title + strData_Description + strData_Coordinate + strData_Address + strData_Datetime + strData_ImageString + "}";
 			
 			var networkState = "" + navigator.network.connection.type;			
 		}
@@ -58666,7 +58667,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 		try
 		{
 			$.ajax({
-				url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/PostComplain',
+				url:'http://webservices.betterbercham.com/Betterberchamservice.asmx/PostComplainIOS',
 				data: strData,
 				//dataType: 'text',
 				contentType: "application/json; charset=utf-8",
@@ -59357,7 +59358,7 @@ Ext.define('BetterPenang.view.New.Idea', {
 			{
 				return;
 			}
-			var objIdeaFor = Ext.getCmp('LocationType');
+			//var objIdeaFor = Ext.getCmp('LocationType');
 			
 			var ComplaintTitle = Ext.getCmp('YourNewIdea');
 			var strIdea = ComplaintTitle.getValue();
@@ -59372,26 +59373,9 @@ Ext.define('BetterPenang.view.New.Idea', {
 				Ext.Msg.alert('Data Empty', 'Please enter your idea', Ext.emptyFn);
 				return;
 			}
+		
+			var strLocation = "MBI";//objIdeaFor.getValue();
 			
-			if(IdeaCurrentAddress != null)
-			{
-				strAddress = IdeaCurrentAddress;
-			}
-			if(IdeaCurrentCoordinate != null)
-			{
-				strCoordinate = IdeaCurrentCoordinate;
-			}
-			
-			var strLocation = objIdeaFor.getValue();
-			
-			if(strLocation == "AddressNeighborhood")
-			{
-				if(strCoordinate == "")
-				{
-					Ext.Msg.alert('Data Empty', 'Please select an address.', Ext.emptyFn);
-					return;
-				}
-			}
 			var strData_For = "\"For\":\"" + strLocation + "\",";
 			var datetime = new Date();
 			var intDate = datetime.getTime();
@@ -59402,11 +59386,11 @@ Ext.define('BetterPenang.view.New.Idea', {
 			var strData_Idea = "\"Idea\":\"" + strIdea + "\",";
 			var strData_Coordinate = "\"Coordinate\":\"" + strCoordinate + "\",";
 			var strData_Address = "\"Neighborhood\":\"" + strAddress + "\",";
-			var strData_Datetime = "\"Datetime\":\"" + strDateTime + "\",";
-			var strData_UserID = "\"UserID\":\"" + strUserID + "\",";
-			var strData_UserFBAccess_Token = "\"UserFBAccess_Token\":\"" + strToken + "\"";
+			var strData_Datetime = "\"Datetime\":\"" + strDateTime + "\"";
+			//var strData_UserID = "\"UserID\":\"" + strUserID + "\",";
+			//var strData_UserFBAccess_Token = "\"UserFBAccess_Token\":\"" + strToken + "\"";
 			
-			var strData = "{" + strData_For + strData_Idea + strData_Coordinate + strData_Address + strData_Datetime + strData_UserID + strData_UserFBAccess_Token + "}";
+			var strData = "{" + strData_For + strData_Idea + strData_Coordinate + strData_Address + strData_Datetime + "}";
 			
 			var networkState = "" + navigator.network.connection.type;
 			if (networkState == "unknown")
@@ -59751,9 +59735,9 @@ Ext.application({
 		
 		console.log("app.js width : " + this.deviceWidth);
 		console.log("app.js width : " + this.facebookAppId);
-		BetterPenang.app.getController("Facebook").FBInit();
+		//BetterPenang.app.getController("Facebook").FBInit();
 		
-		//BetterPenang.app.getController("BetterPGApp").ShowMainPage();
+		BetterPenang.app.getController("BetterPGApp").ShowMainPage();
 		//app.init();
 		// if(localStorage.getItem("token"))
 		// {
