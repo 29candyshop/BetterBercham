@@ -13,25 +13,34 @@
 	<author>
 		SG Chua
 	</author>
-
+	
+	<icon src="icon.png" />
 	<!--<icon src="icon.png" gap:role="default" />-->
 	<!--<icon src="/resources/icons/icon.png" width="57" height="57" />
 	<icon src="/resources/icons/icon@72.png" gap:platform="ios" width="72" height="72" />
 	<icon src="/resources/icons/icon@2x.png" width="114" height="114" />-->
 	
-	<icon src="/resources/icons/#BetterPenang-Logo_57x57.png" width="57" height="57" />
-	<icon src="/resources/icons/#BetterPenang-Logo_72x72.png" gap:platform="ios" width="72" height="72" />
-	<icon src="/resources/icons/#BetterPenang-Logo_114x114.png" width="114" height="114" />
+	<icon src="/resources/icons/BetterBercham_57x57.png" width="57" height="57" />
+	<icon src="/resources/icons/BetterBercham_72x72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="/resources/icons/BetterBercham_114x114.png" width="114" height="114" />
+	<icon src="/resources/icons/BetterBercham_144x144.png" gap:platform="ios" width="144" height="144" />
+	
 	
 	<!--<gap:splash src="/resources/loading/Default.png" width="320" height="480" />
 	<gap:splash src="/resources/loading/Default@2x.png" width="640" height="960" />
 	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" width="1024" height="768" />
 	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" width="768" height="1024" />-->
 
-	<gap:splash src="/resources/loading/betterpg-iphone_320x480.png" width="320" height="480" />
-	<gap:splash src="/resources/loading/betterpg-iphone4_640x960.png" width="640" height="960" />
-	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" width="1024" height="768" />
-	<gap:splash src="/resources/loading/betterpg-ipad_768x1024.png" width="768" height="1024" />
+	<gap:splash src="/resources/loading/betterbercham_320x480.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="/resources/loading/betterbercham_640x960.png" gap:platform="ios" width="640" height="960" />
+	<gap:splash src="/resources/loading/betterbercham_640x1136.png" gap:platform="ios" width="640" height="1136" />
+	<gap:splash src="/resources/loading/betterbercham_1024x748.png" gap:platform="ios" width="1024" height="748" />
+	<gap:splash src="/resources/loading/betterbercham_768x1004.png" gap:platform="ios" width="768" height="1004" />
+
+	<!-- retina iPad support: PhoneGap 2.5.0+ only -->
+	<gap:splash src="/resources/loading/betterbercham_2048x1496.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="/resources/loading/betterbercham_1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+
 	
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/network"/>
@@ -46,6 +55,7 @@
 	<!-- <gap:plugin name="ChildBrowser" version="~3" /> for Cordova (1.9.0+) -->
 	<access origin="*" />
 	<!--<access origin="https://build.phonegap.com" browserOnly="true" />-->
+	
 	<preference name="orientation" value="portrait" />
 	<preference name="phonegap-version" value="2.5.0" />
 </widget>
