@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns		= "http://www.w3.org/ns/widgets"
-	xmlns:gap	= "http://phonegap.com/ns/1.0"
-	id		= "com.app.betterbercham"
-	version 	= "1.0.20">
+
+  <widget 
+	xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+	id		= "G7399L6F4H.com.app.betterbercham"
+	versionCode = "20" 
+	version 	= "1.0.21">
 
 	<name>#BetterBercham</name>
 
@@ -14,7 +17,7 @@
 		SG Chua
 	</author>
 	
-	<icon src="icon.png" />
+	
 	<!--<icon src="icon.png" gap:role="default" />-->
 	<!--<icon src="/resources/icons/icon.png" width="57" height="57" />
 	<icon src="/resources/icons/icon@72.png" gap:platform="ios" width="72" height="72" />
