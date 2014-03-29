@@ -3,7 +3,7 @@
   <widget 
 	xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-	id		= "G7399L6F4H.com.app.betterbercham"
+	id		= "com.app.betterbercham"
 	versionCode = "20" 
 	version 	= "1.0.21">
 
@@ -60,5 +60,5 @@
 	<!--<access origin="https://build.phonegap.com" browserOnly="true" />-->
 	
 	<preference name="orientation" value="portrait" />
-	<preference name="phonegap-version" value="2.5.0" />
+	<preference name="phonegap-version" value="3.1.0" />
 </widget>
