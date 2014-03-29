@@ -4,8 +4,8 @@
 	xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
 	id		= "com.app.betterbercham"
-	versionCode = "22" 
-	version 	= "1.0.22">
+	versionCode = "23" 
+	version 	= "1.0.23">
 
 	<name>#BetterBercham</name>
 
@@ -50,6 +50,10 @@
 	<feature name="http://api.phonegap.com/1.0/camera"/>
 	<feature name="http://api.phonegap.com/1.0/file"/>
 
+	<gap:plugin name="org.apache.cordova.Camera" />
+	<gap:plugin name="org.apache.cordova.device" />
+	
+	
 	<!--<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		<param name="APP_ID" value="674651699253599" />
 		<param name="APP_NAME" value="BetterBercham" />
