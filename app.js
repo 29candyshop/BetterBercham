@@ -50448,7 +50448,7 @@ Ext.define('Ext.device.Camera', {
 				var toshow_reverse = 100 - toShow;
 				//var htmlstr = "'<img width=\"" + toShow + "%;\" src=\"resources/images/betterPenang.png\" align=\"center\"><br>'";
 				//var htmlstr = "<img width=\"" + logowidth_toset + "\" src=\"resources/images/BetterPenangLogo_653x133.png\" align=\"center\"><br>";
-				var htmlstr = "<span style='font-size:36px;color:#fff;font-weight:bold;text-shadow: 2px 2px #000000;'>BETTER BERCHAM</span><br>";
+				var htmlstr = "<span style='font-size:36px;color:#fff;font-weight:bold;text-shadow: 2px 2px #000000;'>BETTER BERCHAM 2</span><br>";
 				//console.log("html string : " + htmlstr);
 				logo.setHtml(htmlstr);
 				var bkwidth = 1032;//1600;//564;
@@ -50583,7 +50583,7 @@ Ext.define('Ext.device.Camera', {
 												xtype: 'component',
 												id: 'mainpanel_logo',
 												html: [
-													'<span style=\'font-size:36px;color:#fff;font-weight:bold;text-shadow: 2px 2px #000000;\'>BETTER BERCHAM</span><br>'
+													'<span style=\'font-size:36px;color:#fff;font-weight:bold;text-shadow: 2px 2px #000000;\'>BETTER BERCHAM 2</span><br>'
 													//'<img width="100%;" src="resources/images/BetterPenangLogo_653x133.png" align="center"><br>',
 												].join("")
 											},
@@ -58108,7 +58108,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 												scope: this,
 												handler: function() 
 												{
-													console.log("start Camera");
+													console.log("start Camera: " + navigator.camera);
 													try
 													{
 														navigator.camera.getPicture(
@@ -58184,7 +58184,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 														});
 													}
 													catch(err){
-														console.log("error: " + err);
+														console.log("error from catch: " + err);
 													}
 													// Ext.device.Camera.capture({ 
 														// source: 'camera', 
