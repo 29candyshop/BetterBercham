@@ -50670,7 +50670,7 @@ Ext.define('Ext.device.Camera', {
                                                                     xtype: 'toolbar',
                                                                     //title: 'bar'
 																	items: [
-																		{ xtype: "spacer" }
+																		{ xtype: "spacer" },
 																		/*{
 																			xtype: 'button',
 																			hidden: true,
@@ -50896,7 +50896,7 @@ Ext.define('Ext.device.Camera', {
 											xtype: 'toolbar',
 											//title: 'bar'
 											items: [
-												{ xtype: "spacer" }
+												{ xtype: "spacer" },
 												/*{
 													xtype: 'button',
 													hidden: true,
