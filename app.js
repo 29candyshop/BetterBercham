@@ -49179,6 +49179,7 @@ Ext.define('BetterPenang.view.ViewPosts', {
 						[
 							{
 								xtype: 'container',
+								hidden:true,
 								margin: '10 10 10 10',
 								style: 'background-color: #000000',
 								items:
@@ -49192,6 +49193,7 @@ Ext.define('BetterPenang.view.ViewPosts', {
 							},	
 							{
 								xtype: 'container',
+								hidden:true,
 								layout: {
 									type: 'vbox',
 									align: 'start',
@@ -49225,6 +49227,7 @@ Ext.define('BetterPenang.view.ViewPosts', {
 							},
 							{
 								xtype: 'button',
+								hidden:true,
 								margin: '5 5 5 5',
 								ui: 'action',
 								id: 'btnLike',
@@ -50667,8 +50670,8 @@ Ext.define('Ext.device.Camera', {
                                                                     xtype: 'toolbar',
                                                                     //title: 'bar'
 																	items: [
-																		{ xtype: "spacer" },
-																		{
+																		{ xtype: "spacer" }
+																		/*{
 																			xtype: 'button',
 																			hidden: true,
 																			//margin: '5,5,5,5',
@@ -50694,7 +50697,7 @@ Ext.define('Ext.device.Camera', {
 																				// }
 																				
 																			},
-																		},
+																		},*/
 																		// {
 																			// xtype: 'button',
 																			// html: ['<FONT COLOR="#ffffff" size="2">Purchase Paid Version</FONT>'].join(""),
@@ -50834,6 +50837,112 @@ Ext.define('Ext.device.Camera', {
                 height: 60,
                 docked: "bottom",
                 items: [
+					{
+						xtype: 'button',
+						hidden: Ext.os.deviceType == 'Phone' ? false: true,
+						//style: 'background-color: #ffffff',
+						//flex: '1',
+						margin: '5,5,5,5',
+						id: 'InfoButton',
+						//ui: 'action',
+						// text: 'Info',
+						html: ['<FONT COLOR="#ffffff" size="2">Info</FONT>'].join(""),
+						//text: 'info',
+						align: 'right',
+						ui: 'sencha',
+						ui: 'action',
+						handler: function() {
+							var overlay_width = BetterPenang.app.deviceWidth - 200;
+							var overlay_height = BetterPenang.app.deviceHeight - 300;
+							if (!this.overlay) {
+								this.overlay = Ext.Viewport.add({
+									xtype: 'panel',
+									modal: true,
+									hideOnMaskTap: true,
+									showAnimation: {
+										type: 'popIn',
+										duration: 250,
+										easing: 'ease-out'
+									},
+									hideAnimation: {
+										type: 'popOut',
+										duration: 250,
+										easing: 'ease-out'
+									},
+									centered: true,
+									width: Ext.os.deviceType == 'Phone' ? 260 : overlay_width,
+									height: Ext.os.deviceType == 'Phone' ? 300 : overlay_height,
+									styleHtmlContent: true,
+									html: '<p>Better Bercham is an extended app from Better Penang Platform. ' + 
+									'It iscommunity owned platform which allows users to post complaints and ' + 
+									'ideas to make Bercham a better place for everyone. This app is based on ' + 
+									'the idea that a democracy can only work if everyone plays their role. As such, ' + 
+									'it is a community-driven effort, it will only work if you and I do our part to make it work. ' +
+									'</p></br>' + 
+									'<p>NOTE: The app is created and maintained by volunteers using our own resources.' + 
+									'No government fund was spent on this project and while we are happy to ' + 
+									'receive the support from local government officials, we are not directly affiliated ' + 
+									'to the government. Please support our effort by clicking the advertisement in the app' + 
+									'</p>',                                                          
+									items: [
+										{
+											docked: 'top',
+											xtype: 'toolbar',
+											//html: ['<FONT COLOR="#ffffff" size="3">About Us</FONT>'].join(""),
+											title: 'About Us'
+										},
+										{
+											docked: 'bottom',
+											xtype: 'toolbar',
+											//title: 'bar'
+											items: [
+												{ xtype: "spacer" }
+												/*{
+													xtype: 'button',
+													hidden: true,
+													//margin: '5,5,5,5',
+													//id: 'InfoButton',
+													//ui: 'action',
+													// text: 'Info',
+													html: ['<FONT COLOR="#ffffff" size="2">Like it on FB</FONT>'].join(""),
+													//text: 'info',
+													//align: 'right',
+													ui: 'sencha',
+													ui: 'action',
+													handler: function() {
+														BetterPenang.app.getController("Facebook").TestBrowser();
+														
+														// try
+														// {
+															// var networkState = navigator.network.connection.type;
+															// Ext.Msg.alert('status', "" + networkState, Ext.emptyFn);
+														// }
+														// catch(err)
+														// {
+															// Ext.Msg.alert('Done', 'Error: ' + err);
+														// }
+														
+													},
+												},*/
+												// {
+													// xtype: 'button',
+													// html: ['<FONT COLOR="#ffffff" size="2">Purchase Paid Version</FONT>'].join(""),
+													// //text: 'info',
+													// //align: 'right',
+													// ui: 'sencha',
+													// ui: 'action',
+												// },
+												{ xtype: "spacer" },
+											]
+										}
+									],
+									scrollable: true
+								});
+							}
+							var btnInfo = Ext.getCmp("InfoButton");
+							this.overlay.show();//By(btnInfo);
+						}
+					}
 					/*{
 						xtype: 'panel',
 						id: 'userimage',
