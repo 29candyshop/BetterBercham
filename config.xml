@@ -4,8 +4,8 @@
 	xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
 	id		= "com.app.betterbercham"
-	versionCode = "30" 
-	version 	= "1.0.30">
+	versionCode = "31" 
+	version 	= "1.0.31">
 
 	<name>#BetterBercham</name>
 
