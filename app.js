@@ -58752,6 +58752,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			{
 				//Ext.Msg.alert('Self Entered Address', 'You have entered own address: ' + TextBoxAddr, Ext.emptyFn);
 				blnOwnAddress = true;
+				strAddress = TextBoxAddr;
 				strCoordinate = "(0.0, 0.0)";
 				//return;
 			}
