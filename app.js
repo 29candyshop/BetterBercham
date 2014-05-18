@@ -57431,8 +57431,12 @@ Ext.define('BetterPenang.view.New.Complaints', {
 				
                 CurrentCoordinate = a;
                 CurrentAddress = b;
-                var panel = Ext.getCmp('locationComplaintAddr');
-				panel.setHtml(b);
+                //var panel = Ext.getCmp('locationComplaintAddr');
+				//panel.setHtml(b);
+				
+				var addr = b.replace("<strong>","").replace("</strong>","");
+				var panelAddress = Ext.getCmp('UserAddress');
+				panelAddress.setValue(addr);
 				
 				if(b != "")
 				{
@@ -57695,7 +57699,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 						store: 'ListStore',
 						itemTpl: '<div class="contact"><strong>{Title}</strong></div>'
 				},
-				{
+				/*{
 						xtype: 'container',
 						id: 'AddressComplaintContainer',
 						hidden: Ext.os.deviceType == 'Phone' ? false : true,
@@ -57733,6 +57737,22 @@ Ext.define('BetterPenang.view.New.Complaints', {
 						   },
 
 						],
+				},*/
+				{
+					xtype: 'container',
+						id: 'UserAddressComplaintContainer',
+						hidden: Ext.os.deviceType == 'Phone' ? false : false,
+						margin: Ext.os.deviceType == 'Phone' ? '10 10 10 10' : '30 80 30 80',
+						items:
+						[
+							{
+								xtype: 'textareafield',
+								name: 'UserAddress',
+								id: 'UserAddress',
+								label: 'Address',
+								maxRows: Ext.os.deviceType == 'Phone' ? 3: 10,
+							}
+						]
 				},
 				{
 					xtype: 'container',
@@ -58679,7 +58699,6 @@ Ext.define('BetterPenang.view.New.Complaints', {
          //Ext.Msg.alert('Tap', 'Get Location', Ext.emptyFn);
          this.fireEvent("GetLocationCommand", this);
     },
-    
     onPostComplaint: function () {
 		try
 		{
@@ -58707,21 +58726,43 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			var strImageString = BetterPenang.app.getController("BetterPGApp").GetImageUrl();
 			var strImageString2 = "";
 			var strDescription = "" + objDescription.getValue();
+			var blnOwnAddress = false;
+			var panelAddress = Ext.getCmp('UserAddress');
 			
 			if(strAddress == "")
 			{
-				Ext.Msg.alert('Data Empty', 'Please select an address for your complaint.', Ext.emptyFn);
-				return;
+				
+				
+				if(panelAddress.getValue() == "")
+				{
+					Ext.Msg.alert('Data Empty', 'Please select an address for your complaint.', Ext.emptyFn);
+					return;
+				}
+				else
+				{
+					strAddress = panelAddress.getValue();
+					
+					
+				}
 			}
-
-			if(CurrentAddress != null)
+			
+			var addr = CurrentAddress.replace("<strong>","").replace("</strong>","");
+			var TextBoxAddr = panelAddress.getValue();
+			if(addr !=  TextBoxAddr)
+			{
+				Ext.Msg.alert('Self Entered Address', 'You have entered own address: ' + TextBoxAddr, Ext.emptyFn);
+				blnOwnAddress = true;
+				strCoordinate = "(0.0, 0.0)";
+				//return;
+			}
+			/*if(CurrentAddress != null)
 			{
 				strAddress = CurrentAddress;
 			}
 			if(CurrentCoordinate != null)
 			{
 				strCoordinate = CurrentCoordinate;
-			}
+			}*/
 			try
 			{
 				var length = strImageString.length;
@@ -58736,12 +58777,23 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			var strUserID = mUserID;
 			
 			var strData_For = "\"For\":\"MBI\",";
-			//check coordinate
-			var CurrentLat = CurrentCoordinate.lat();
-			var CurrentLong = CurrentCoordinate.lng();
-			var strCoor = CurrentLat + "|" + CurrentLong;
 			
-			//Ext.Msg.alert('Data Empty', '' + strCoor + "   " + strCoordinate, Ext.emptyFn);
+			
+			//check coordinate
+			var CurrentLat = "";//CurrentCoordinate.lat();
+			var CurrentLong = "";//CurrentCoordinate.lng();
+			var strCoor = "";//CurrentLat + "|" + CurrentLong;
+			if(blnOwnAddress == false)
+			{
+				CurrentLat = CurrentCoordinate.lat();
+				CurrentLong = CurrentCoordinate.lng();
+				strCoor = CurrentLat + "|" + CurrentLong;
+			}
+			else
+			{
+				strCoor = "0.0|0.0";
+			}
+			//Ext.Msg.alert('Data Empty',  strCoordinate, Ext.emptyFn);
 			//return;
 
 			var strToken = localStorage.getItem(facebook_token);
