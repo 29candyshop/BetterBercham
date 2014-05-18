@@ -23,7 +23,7 @@
         "latitude": "5.361725",
         "longitude": "100.302429"
     },
-    {
+    /*{
         "firstName": "New Idea",
         "lastName": "Share idea with us",
         "title": "Dynamic Identity Supervisor",
@@ -34,7 +34,7 @@
         "telephone": "+1 (650) 555 1212",
         "latitude": "37.558547",
         "longitude": "-122.271079"
-    },
+    },*/
     {
         "firstName": "Recent Posts",
         "lastName": "See all other posts",

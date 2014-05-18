@@ -42085,7 +42085,7 @@ Ext.define('BetterPenang.controller.Facebook', {
                 CurrentForm = 'Complaint';
                 Ext.Viewport.animateActiveItem(this.newcomplaint, this.slideLeftTransition);
                 break;
-            case 2:
+            /*case 2:
 				SelectedAddress = "";
 				SelectedCoordinate = "";
 				
@@ -42095,9 +42095,9 @@ Ext.define('BetterPenang.controller.Facebook', {
                 }
                 CurrentForm = 'Idea';
                 Ext.Viewport.animateActiveItem(this.newidea, this.slideLeftTransition);
-                break;
+                break;*/
                 
-            case 3:
+            case 2:
                 //var editButton = this.getPostComplaintButton();
             
                 if (!this.recentposts) {
