@@ -58750,7 +58750,7 @@ Ext.define('BetterPenang.view.New.Complaints', {
 			var TextBoxAddr = panelAddress.getValue();
 			if(addr !=  TextBoxAddr)
 			{
-				Ext.Msg.alert('Self Entered Address', 'You have entered own address: ' + TextBoxAddr, Ext.emptyFn);
+				//Ext.Msg.alert('Self Entered Address', 'You have entered own address: ' + TextBoxAddr, Ext.emptyFn);
 				blnOwnAddress = true;
 				strCoordinate = "(0.0, 0.0)";
 				//return;
