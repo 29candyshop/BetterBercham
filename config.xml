@@ -17,53 +17,168 @@
 		SG Chua
 	</author>
 	
+	<icon src="/resources/icons/icon.png" />
 	
 	<!--<icon src="icon.png" gap:role="default" />-->
-	<!--<icon src="/resources/icons/icon.png" width="57" height="57" />
-	<icon src="/resources/icons/icon@72.png" gap:platform="ios" width="72" height="72" />
-	<icon src="/resources/icons/icon@2x.png" width="114" height="114" />-->
+	<icon src="/resources/icons/icon_app_57.png" width="57" height="57" />
+	<icon src="/resources/icons/icon_app_72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="/resources/icons/icon_app_114.png" width="114" height="114" />
 	
-	<icon src="/resources/icons/BetterBercham_57x57.png" width="57" height="57" />
-	<icon src="/resources/icons/BetterBercham_72x72.png" gap:platform="ios" width="72" height="72" />
-	<icon src="/resources/icons/BetterBercham_114x114.png" width="114" height="114" />
-	<icon src="/resources/icons/BetterBercham_144x144.png" gap:platform="ios" width="144" height="144" />
 	
+	
+	
+
+	<!-- iPhone 6 / 6+ -->
+	<icon src="/resources/icons/icon-60@3x.png" gap:platform="ios" width="180" height="180" />
+
+	<!-- iPhone / iPod Touch  -->
+	<icon src="/resources/icons/icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="/resources/icons/icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+
+	<!-- iPad -->
+	<icon src="/resources/icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="/resources/icons/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+
+	<!-- Settings Icon -->
+	<icon src="/resources/icons/icon-small.png" gap:platform="ios" width="29" height="29" />
+	<icon src="/resources/icons/icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+
+	<!-- Spotlight Icon -->
+	<icon src="/resources/icons/icon-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="/resources/icons/icon-40@2x.png" gap:platform="ios" width="80" height="80" />
+
+
+
+
+	
+	
+	
+	<!-- iPhone and iPod touch -->
+	<gap:splash src="/resources/loading/Default.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="/resources/loading/Default@2x.png" gap:platform="ios" width="640" height="960" />
+
+	<!-- iPhone 5 / iPod Touch (5th Generation) -->
+	<gap:splash src="/resources/loading/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+
+	<!-- iPhone 6 -->
+	<gap:splash src="/resources/loading/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
+	<gap:splash src="/resources/loading/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
+	<gap:splash src="/resources/loading/Default-Landscape-736h@3x.png" gap:platform="ios" width="2208" height="1242" />
+
+	<!-- iPad -->
+	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" gap:platform="ios" width="768" height="1024" />
+	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" gap:platform="ios" width="1024" height="768" />
+
+	<!-- Retina iPad -->
+	<gap:splash src="/resources/loading/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+	<gap:splash src="/resources/loading/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
+
+
+
+	
+	
+	
+
 	
 	<!--<gap:splash src="/resources/loading/Default.png" width="320" height="480" />
 	<gap:splash src="/resources/loading/Default@2x.png" width="640" height="960" />
 	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" width="1024" height="768" />
-	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" width="768" height="1024" />-->
+	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" width="768" height="1024" />
 
-	<gap:splash src="/resources/loading/betterbercham_320x480.png" gap:platform="ios" width="320" height="480" />
-	<gap:splash src="/resources/loading/betterbercham_640x960.png" gap:platform="ios" width="640" height="960" />
-	<gap:splash src="/resources/loading/betterbercham_640x1136.png" gap:platform="ios" width="640" height="1136" />
-	<gap:splash src="/resources/loading/betterbercham_1024x748.png" gap:platform="ios" width="1024" height="748" />
-	<gap:splash src="/resources/loading/betterbercham_768x1004.png" gap:platform="ios" width="768" height="1004" />
 
-	<!-- retina iPad support: PhoneGap 2.5.0+ only -->
-	<gap:splash src="/resources/loading/betterbercham_2048x1496.png" gap:platform="ios" width="2048" height="1496" />
-	<gap:splash src="/resources/loading/betterbercham_1536x2008.png" gap:platform="ios" width="1536" height="2008" />
+	
+	<gap:splash src="/resources/loading/Default-Landscape~ipad.png" gap:platform="ios" width="2048" height="1496" />
+	<gap:splash src="/resources/loading/Default-Portrait~ipad.png" gap:platform="ios" width="1536" height="2008" />-->
 
+	
+	
+	
+	
 	
 	<feature name="http://api.phonegap.com/1.0/geolocation"/>
 	<feature name="http://api.phonegap.com/1.0/network"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
 	<feature name="http://api.phonegap.com/1.0/file"/>
-
+	
+	<!--
+	<gap:plugin name="org.apache.cordova.splashscreen" />	
+	<gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" />
 	<gap:plugin name="org.apache.cordova.Camera" />
 	<gap:plugin name="org.apache.cordova.network-information" />
 	<gap:plugin name="org.apache.cordova.device" />
-	
-	
+	<gap:plugin name="org.apache.cordova.geolocation"/>
+	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
+		<param name="APP_ID" value="1575196586053265" />
+		<param name="APP_NAME" value="AktifPenang" />
+	</gap:plugin>
+	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />-->
+	<!--<gap:plugin name="org.transistorsoft.cordova.background-geolocation"/>-->
+	<!--<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />-->
+	<!--<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />-->
+
 	<!--<gap:plugin name="com.phonegap.plugins.facebookconnect">
 		<param name="APP_ID" value="674651699253599" />
 		<param name="APP_NAME" value="BetterBercham" />
 	</gap:plugin>-->
+	<plugin name="nl.x-services.plugins.socialsharing" source="pgb" spec="4.3.8" />
+	<plugin name="cordova-plugin-camera" source="npm"  />
+	<plugin name="cordova-plugin-device" source="npm"  />
+	<plugin name="cordova-plugin-dialogs" source="npm"  />
+	<!--<plugin name="cordova-plugin-geolocation"    source="npm" spec="2.2.0" />	-->
+	<plugin name="cordova-plugin-geolocation-ios9-fix"    source="npm" />	
+    <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
+    <plugin name="cordova-plugin-splashscreen"   source="npm" spec="2.1.0" />
+	<plugin name="com.phonegap.plugins.facebookconnect" source="pgb" spec="0.9.0" >
+		<param name="APP_ID" value="674651699253599" />
+		<param name="APP_NAME" value="BetterBercham" />
+	</plugin>
 
+	
+	
+	
+	<!--<gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="true">
+        <string>AktifPenang would use location to track your run. It only use location when user start run.</string>
+	</gap:config-file>
+	<gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false"></gap:config-file> -->
+	<gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="true">
+        <string>Betterpenang would use location to for complaint locaiton. It only use location when user on mapview.</string>
+	</gap:config-file>
+	<gap:config-file platform="ios" parent="allowsBackgroundLocationUpdates" overwrite="true">
+        <string>YES</string>
+	</gap:config-file>
+	 
+	<gap:config-file platform="ios" parent="UIBackgroundModes" overwrite="true">
+        <array>
+            <string>location</string>
+        </array>
+	</gap:config-file>
+	
+	
+	
+	
+	
+	<!--<feature name="BackgroundGeolocation">
+		<param name="ios-package" value="CDVBackgroundGeolocation"/>
+	</feature>
+	<feature name="Geolocation">
+		<param name="ios-package" value="CDVLocation" />
+	</feature>
+	<feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>-->
+	
 	<!-- <gap:plugin name="ChildBrowser" version="~3" /> for Cordova (1.9.0+) -->
 	<access origin="*" />
 	<!--<access origin="https://build.phonegap.com" browserOnly="true" />-->
 	
+	<preference name="AutoHideSplashScreen" value="false" />
+	
+	<preference name="exit-on-suspend" value="false"/>
+	<preference name="DisallowOverscroll" value="true" />
+	<!--<preference name="StatusBarBackgroundColor" value="#000000" />
+	<preference name="StatusBarStyle" value="styleDefault" />-->
+	<preference name="fullscreen" value="false" />
 	<preference name="orientation" value="portrait" />
-	<preference name="phonegap-version" value="3.1.0" />
+	<!--<preference name="phonegap-version" value="3.7.0" />-->
+	<preference name="phonegap-version" value="cli-5.2.0" />
 </widget>
