@@ -1547,7 +1547,7 @@ function LoadComplaintType()
 	for(var i = 0; i < arrComplaintTitle.length; i++)
 	{
 		html += '<div id="' + arrComplaintTypeIcon[i] + '" onclick="" class="evtComplaintType" style="max-width:170px;position:relative;float:left;margin-top:1px;margin-left:1px;width:32.5%;height:140px;background-image:url(\'images/icon_complaint/' + arrComplaintTypeIcon[i] + '.png\');background-size:contain;background-repeat:no-repeat;">' + 
-					'<p id= "' + arrComplaintTypeIcon[i] + '-name" value="' + i + '" style="position:absolute;bottom:0px;width:100%;text-align:center;color:#fff;">' + arrComplaintTitle[i] + '</p>'+
+					'<p id= "' + arrComplaintTypeIcon[i] + '-name" value="' + i + '" style="position:absolute;bottom:0px;width:100%;text-align:center;color:#222;">' + arrComplaintTitle[i] + '</p>'+
 				'</div>';
 	}
 	document.getElementById("NewComplaintSectionMain").innerHTML += html;
