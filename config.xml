@@ -5,7 +5,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
 	id		= "com.app.betterbercham"
 	versionCode = "32" 
-	version 	= "2.00.02">
+	version 	= "2.00.03">
 
 	<name>Better Ipoh</name>
 
