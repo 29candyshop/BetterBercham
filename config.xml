@@ -5,7 +5,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
 	id		= "com.app.betterbercham"
 	versionCode = "32" 
-	version 	= "2.00.04">
+	version 	= "2.00.05">
 
 	<name>Better Ipoh</name>
 
@@ -124,6 +124,7 @@
 	<plugin name="cordova-plugin-camera" source="npm"  />
 	<plugin name="cordova-plugin-device" source="npm"  />
 	<plugin name="cordova-plugin-dialogs" source="npm"  />
+	<plugin name="cordova-plugin-file-transfer" source="npm" />
 	<!--<plugin name="cordova-plugin-geolocation"    source="npm" spec="2.2.0" />	-->
 	<plugin name="cordova-plugin-geolocation-ios9-fix"    source="npm" />	
     <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
