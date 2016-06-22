@@ -5,7 +5,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
 	id		= "com.app.betterbercham"
 	versionCode = "32" 
-	version 	= "2.00.03">
+	version 	= "2.00.04">
 
 	<name>Better Ipoh</name>
 
@@ -99,7 +99,7 @@
 	<feature name="http://api.phonegap.com/1.0/network"/>
 	<feature name="http://api.phonegap.com/1.0/camera"/>
 	<feature name="http://api.phonegap.com/1.0/file"/>
-	
+	<feature name="http://api.phonegap.com/1.0/file-transfer"/>
 	<!--
 	<gap:plugin name="org.apache.cordova.splashscreen" />	
 	<gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" />
